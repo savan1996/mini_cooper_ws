@@ -20,7 +20,7 @@ def recorder():
     rospy.Subscriber("vehicle_data", String, TivaC_callback)
     rospy.spin()
 
-if __name__=='__main__':
+if __name__ == '__main__':
     rospy.init_node('data_recorder')
     path = rospy.get_param('~path') + str(datetime.datetime.now().strftime("%Y-%m-%d-%H-%M-%S") + '/')
     
