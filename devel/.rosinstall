@@ -1,2 +1,2 @@
 - setup-file:
-    local-name: /home/mir-lab/Mini_Cooper/devel/setup.sh
+    local-name: /home/mir-lab/catkin_ws_mini_cooper/devel/setup.sh
