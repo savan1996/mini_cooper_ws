@@ -1,2 +1,2 @@
 - setup-file:
-    local-name: /home/ubuntu/catkin_ws_mini_cooper/install/setup.sh
+    local-name: /home/mir-lab/mini_cooper_ws/install/setup.sh
