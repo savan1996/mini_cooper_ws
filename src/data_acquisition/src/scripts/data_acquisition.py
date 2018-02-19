@@ -7,7 +7,10 @@ import time
 import rospy
 from std_msgs.msg import String
 
+time_pub = rospy.Publisher('time_taken', String, queue_size = 1)
+
 def TivaC_callback(data):
+    global time_pub
     time_stamp = datetime.datetime.now().strftime("%Y-%m-%d-%H-%M-%S-%f")
     last_time = time.time()
     incoming = data.data
@@ -15,6 +18,7 @@ def TivaC_callback(data):
     cv2.imwrite(str(path) + str(time_stamp) + '.jpg', frame)
     vehicle_data.write(str(time_stamp) + ',' + str(incoming) + '\r')
     print ('time_taken {} '.format(time.time()-last_time))
+    time_pub.publish(str(format(time.time()-last_time)))
     
 def recorder():
     rospy.Subscriber("vehicle_data", String, TivaC_callback)
