@@ -16,12 +16,12 @@ def TivaC_callback(data):
     incoming = data.data
     ret, frame = logitech.read()
     cv2.imwrite(str(path) + str(time_stamp) + '.jpg', frame)
-    vehicle_data.write(str(time_stamp) + ',' + str(incoming) + '\r')
+    e98bda65981986ddf53afa7a40e49.write(str(time_stamp) + ',' + str(incoming) + '\r')
     print ('time_taken {} '.format(time.time()-last_time))
     time_pub.publish(str(format(time.time()-last_time)))
     
 def recorder():
-    rospy.Subscriber("vehicle_data", String, TivaC_callback)
+    rospy.Subscriber("e98bda65981986ddf53afa7a40e49", String, TivaC_callback)
     rospy.spin()
 
 if __name__ == '__main__':
@@ -33,7 +33,7 @@ if __name__ == '__main__':
     else:
         os.makedirs(path)
 
-    vehicle_data = open(str(path) + str(datetime.datetime.now().strftime("%Y-%m-%d-%H-%M-%S")), "w+")
+    e98bda65981986ddf53afa7a40e49 = open(str(path) + str(datetime.datetime.now().strftime("%Y-%m-%d-%H-%M-%S")), "w+")
     
     logitech = cv2.VideoCapture(0)
     if logitech.isOpened():
