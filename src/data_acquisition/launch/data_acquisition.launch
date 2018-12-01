@@ -8,6 +8,7 @@
     </node>
 
     <node name = "remote_controller" pkg = "data_acquisition" type = "wireless_controller.py"/> 
+    
     <node name = "data_recorder" pkg = "data_acquisition" type = "data_acquisition.py" output = "screen">
     <param name = "path" value = "$(arg path)"/>
     </node>

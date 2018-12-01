@@ -6,23 +6,25 @@ import cv2
 import time
 import rospy
 from std_msgs.msg import String
+from sensor_msgs.msg import Image
+from image_converter import ImageConverter
 
 time_pub = rospy.Publisher('time_taken', String, queue_size = 1)
-
+ic = ImageConverter()
+global value
+value = 0
 def TivaC_callback(data):
     global time_pub
-    time_stamp = datetime.datetime.now().strftime("%Y-%m-%d-%H-%M-%S-%f")
+    value = data.data
+    
+def recorder(image):
     last_time = time.time()
-    incoming = data.data
-    ret, frame = logitech.read()
-    cv2.imwrite(str(path) + str(time_stamp) + '.jpg', frame)
-    vehicle_data.write(str(time_stamp) + ',' + str(incoming) + '\r')
+    img = ic.imgmsg_to_opencv(image)
+    time_stamp = datetime.datetime.now().strftime("%Y-%m-%d-%H-%M-%S-%f")
+    cv2.imwrite(str(path) + str(time_stamp) + '.jpg',img)
+    vehicle_data.write(str(time_stamp) + '\t' + str(value) + '\t' + "\r\n")
     print ('time_taken {} '.format(time.time()-last_time))
     time_pub.publish(str(format(time.time()-last_time)))
-    
-def recorder():
-    rospy.Subscriber("vehicle_data", String, TivaC_callback)
-    rospy.spin()
 
 if __name__ == '__main__':
     rospy.init_node('data_recorder')
@@ -34,12 +36,7 @@ if __name__ == '__main__':
         os.makedirs(path)
 
     vehicle_data = open(str(path) + str(datetime.datetime.now().strftime("%Y-%m-%d-%H-%M-%S")), "w+")
-    
-    logitech = cv2.VideoCapture(0)
-    if logitech.isOpened():
-        print('Camera connected')
-    else:
-        print('Camera disconnected')
-        quit()
 
-    recorder()
+    rospy.Subscriber("vehicle_data", String, TivaC_callback)
+    rospy.Subscriber('/usb_cam/image_raw', Image, recorder)
+    rospy.spin()
