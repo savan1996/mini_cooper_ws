@@ -1,0 +1,8 @@
+prefix=/home/mir-lab/mini_cooper_ws/devel
+
+Name: data_acquisition
+Description: Description of data_acquisition
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/mir-lab/mini_cooper_ws/devel/lib 
+Requires: 
