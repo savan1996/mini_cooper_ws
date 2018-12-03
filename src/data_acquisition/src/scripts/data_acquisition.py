@@ -11,11 +11,12 @@ from image_converter import ImageConverter
 
 time_pub = rospy.Publisher('time_taken', String, queue_size = 1)
 ic = ImageConverter()
-global value
-value = 0
+
 def TivaC_callback(data):
-    global time_pub
+    global value
     value = data.data
+    
+    
     
 def recorder(image):
     last_time = time.time()
@@ -25,6 +26,7 @@ def recorder(image):
     vehicle_data.write(str(time_stamp) + '\t' + str(value) + '\t' + "\r\n")
     print ('time_taken {} '.format(time.time()-last_time))
     time_pub.publish(str(format(time.time()-last_time)))
+    
 
 if __name__ == '__main__':
     rospy.init_node('data_recorder')

@@ -1,1 +1,1 @@
-# Data-Acquisition-for-end-to-end-mini
+# Data-Acquisition-for-end-to-end-mini-cooper
