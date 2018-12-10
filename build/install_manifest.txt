@@ -231,6 +231,10 @@
 /home/mir-lab/mini_cooper_ws/install/share/data_acquisition/cmake/data_acquisitionConfig.cmake
 /home/mir-lab/mini_cooper_ws/install/share/data_acquisition/cmake/data_acquisitionConfig-version.cmake
 /home/mir-lab/mini_cooper_ws/install/share/data_acquisition/package.xml
+/home/mir-lab/mini_cooper_ws/install/lib/pkgconfig/neural_control.pc
+/home/mir-lab/mini_cooper_ws/install/share/neural_control/cmake/neural_controlConfig.cmake
+/home/mir-lab/mini_cooper_ws/install/share/neural_control/cmake/neural_controlConfig-version.cmake
+/home/mir-lab/mini_cooper_ws/install/share/neural_control/package.xml
 /home/mir-lab/mini_cooper_ws/install/lib/pkgconfig/rosserial_server.pc
 /home/mir-lab/mini_cooper_ws/install/share/rosserial_server/cmake/rosserial_serverConfig.cmake
 /home/mir-lab/mini_cooper_ws/install/share/rosserial_server/cmake/rosserial_serverConfig-version.cmake

@@ -1,0 +1,8 @@
+prefix=/home/mir-lab/mini_cooper_ws/devel
+
+Name: neural_control
+Description: Description of neural_control
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/mir-lab/mini_cooper_ws/devel/lib 
+Requires: 
